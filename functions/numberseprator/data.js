@@ -17,12 +17,12 @@ function remover(seprater,decimal){
     catch(error){
         return "";
     }
-}
+} 
 function appendFormattedValue(value) {
-  const valueContainer = document.getElementById("value");
-  const currentValue = valueContainer.innerHTML;
-  const newValue = currentValue + "<br>" + value; 
-  valueContainer.innerHTML = newValue;
-    }
-   }
+    const valueContainer = document.getElementById("value");
+    const currentValue = valueContainer.innerHTML;
+    const newValue = currentValue + "<br>" + value;
+    valueContainer.innerHTML = newValue;
+}
+}
 

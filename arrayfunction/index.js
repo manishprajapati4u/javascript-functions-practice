@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.container');
       function addElements(event) {
