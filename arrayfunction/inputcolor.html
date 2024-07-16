@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<style>
+    .box input{
+        margin-top: 10%;
+        height: 130px;
+        width: 100%;
+    }
+
+
+</style>
+<body>
+    <div class="container" id="mainContainer">
+        <div class="color-picker" id="chooseColor">
+            <label for="favcolor">Choose text color from here:</label>
+            <input type="color" id="favcolor" name="favcolor" value="#00AAFF">
+        </div>
+        <div class="font-picker" style="margin-top: 30px;">
+            <label for="font-picker">Select Font</label>
+            <select name="" id="fontpicker">
+                <option value="Arial, sans-serif">Arial</option>
+                <option value="Verdana, sans-serif">Verdana</option>
+                <option value="Courier New, monospace">Courier New</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="Impact, sans-serif">Impact</option>  
+                <option value="Lucida Console">Lucida Console</option>   
+                <option value="Cursive">Cursive</option> 
+                <option value="Fantasy">Fantasy</option>           
+         
+          
+            </select>
+           
+            <br>
+            <label for="">Choose font size</label>
+            <select name="" id="fontsizepicker" style="margin-top: 20px;">
+                <option value="8px">8px</option>
+                <option value="10px">10px</option>
+                <option value="12px">12px</option>
+                <option value="15px">15px</option>
+                <option value="20px">20px</option>  
+                <option value="22px">22px</option>   
+                <option value="25px">25px</option> 
+                <option value="30px">30px</option>           
+         
+          
+            </select>
+        </div>
+        <div class="box" id="inputBox">
+            <input type="text" placeholder="write whatever you want" id="typeBox" style="text-transform: capitalize; font-size: 17px;">
+        </div>
+        <div class="duplicate-text" >
+            <p id="SimilarText" style="text-transform: capitalize;"></p>
+
+        </div>
+        
+    </div>
+    <script>
+
+    //similar text
+    const outputparagraph = document.getElementById('SimilarText');
+    const text = document.getElementById('typeBox');
+     
+    typeBox.addEventListener('input',function(){
+        outputparagraph.textContent = text.value;
+    });
+    //simial text color change
+    const color = document.getElementById('favcolor');
+        const similarColor = document.getElementById('SimilarText');
+
+        function updateTextColor() {
+        const selectedColor = color.value;
+        similarColor.style.color = selectedColor; 
+    }
+
+color.addEventListener('input', updateTextColor);
+SimilarText.style.color = color.value;
+
+//similar text font change
+
+var inputelement = document.getElementById('SimilarText');
+var fontpicker = document.getElementById('fontpicker');
+ 
+fontpicker.addEventListener('change',function(){
+    var selectedfont = fontpicker.value;
+    inputelement.style.fontFamily=selectedfont; 
+});
+//similar text font size change
+var inputfontsize = document.getElementById('SimilarText');
+var fontsizepicker = document.getElementById('fontsizepicker');
+ 
+fontsizepicker.addEventListener('change',function(){
+    var selectedfontsize = fontsizepicker.value;
+    inputfontsize.style.fontSize=selectedfontsize; 
+});
+
+
+
+    </script>
+</body>
+</html>

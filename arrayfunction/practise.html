@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<style>
+    .dark{
+        background-color: black;
+        color: white;
+    }
+    .light{
+        background-color: white;
+        color: black;
+    }
+</style>
+<body>
+    <p class="para">creating something new</p>
+    <p>click on the button and see how's the color change.</p>
+    <button id="mode">change mode</button>
+</body>
+<script>
+    let btn = document.createElement("button");
+    btn.innerText="click me!";
+    btn.style.color="white";
+    btn.style.backgroundColor="red";
+
+    document.querySelector("body").prepend(btn);
+    //q2
+    let myclass = document.querySelector("p");
+    myclass.classList.add("newpara");
+  // myclass.setAttribute("class","newpara");
+//button mode
+let mode = document.querySelector("#mode");
+let currmode= "light";
+let body = document.querySelector("body");
+mode.addEventListener("click",() => {
+    if(currmode === "light"){
+        currmode = "dark";
+       body.classList.add("dark");
+       body.classList.remove("light");
+
+    }else{
+        currmode = "light";
+        body.classList.add("light");
+        body.classList.remove("dark");   
+     }
+    console.log(currmode);
+});
+//class in js
+class toyota{
+    start(){
+        console.log("start")
+    }
+ callback(data){
+    console.log(data);
+}
+
+}
+
+
+
+</script>
+</html>

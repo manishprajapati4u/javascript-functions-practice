@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="icon" type="image/x-icon" href="file:///C:/Users/Himanshu/Downloads/punjab-national-bank.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="redstrip"></div>
+        <div class="yellowstrip"></div>
+        <div class="sidebar">
+            <img src="file:///C:/Users/Himanshu/Downloads/icons8-home-64.png" alt="">
+            <div class="dropdown">
+                <button class="dropbtn">Home <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="file:///C:/xampp/htdocs/javascript-functions-practice/arrayfunction/bankform.html">Third Party Deposit</a>
+                </div>
+            </div> 
+        </div>
+        <div class="bottomstrip"></div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var dropdownButton = document.querySelector('.dropbtn');
+        var dropdownContent = document.querySelector('.dropdown-content');
+        
+        dropdownButton.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.addEventListener('click', function(event) {
+            if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.classList.remove('show');
+            }
+        });
+    });
+</script>
+</html>

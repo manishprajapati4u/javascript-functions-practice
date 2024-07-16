@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function countvowel(str){
+        let count = 0;
+        for(const char of str){
+            if(
+                char === 'a'  ||
+                char === 'e'  ||
+                char === 'i'  ||
+                char === 'o'  ||
+                char === 'u'  
+            ){
+                count++;
+            }
+        }
+        console.log(count);
+
+    };
+    //for each in array
+    let city = ['delhi','mumbai','tamilnadu','punjab','gujrat']
+    city.forEach((name) => {
+        console.log(name);
+    });
+    //squaring of a number
+    let num = [2,3,4,5,6,7,8,9];
+    num.forEach((num) => {
+        console.log(num*num);
+    });
+         //filter array
+         let evennum = [1,2,3,4,5,6,7,8,9,10];
+        let number= evennum.filter((val) => {
+            return val % 2 === 0 ;
+
+         });
+         console.log(number);
+         //practise question
+         let marks = [80,96,90,52,84,77,99,89,91,87,55,99]
+         let toppers = marks.filter((val) => {
+            return val>90;
+         });
+         console.log(toppers);
+         //
+         let n = prompt("enter a number");
+         let arr = [];
+         for(let i=1; i<=n;i++){
+            arr[i-1] = i;
+         }
+         console.log(arr)
+    let sum = arr.reduce((res,curr) =>{
+        return res*curr
+    });       
+    console.log("sum =",sum); 
+
+    let factorial = arr.reduce((res,curr) =>{
+        return res*curr
+    });       
+    console.log("factorial =", factorial ); 
+     
+</script>
+</html>
