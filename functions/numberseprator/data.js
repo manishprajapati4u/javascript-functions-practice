@@ -24,5 +24,6 @@ function appendFormattedValue(value) {
     const newValue = currentValue + "<br>" + value;
     valueContainer.innerHTML = newValue;
 }
+
 }
 
