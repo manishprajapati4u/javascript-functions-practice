@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>tabs</title>
+</head>
+<style>
+    #opentabs{
+       text-align: center;
+        padding: 10px 10px;
+    }
+</style>
+<body>
+    <button id="opentabs">clickhere </button>
+    <script>
+        function openyoutubetabs(){
+            const videosurl = [
+            'https://www.youtube.com/watch?v=Fxoxd0ovKn4',
+
+            ];
+            videosurl.forEach(url => {
+                let link = document.createElement('a');
+               link.href = url;
+                link.target = '_blank';
+              link.click();       
+                 });
+        }
+        const opentabs = document.getElementById('opentabs');
+        opentabs.addEventListener('click', openyoutubetabs);
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third Party Deposit</title>
+    <link rel="icon" type="image/x-icon" href="file:///C:/Users/Himanshu/Downloads/punjab-national-bank.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>    
+    <div class="container">
+        <div class="redstrip"></div>
+        <div class="yellowstrip"></div>
+        <div class="sidebar">
+            <img src="file:///C:/Users/Himanshu/Downloads/icons8-home-64.png" alt="">
+            <div class="dropdown">
+                <button class="dropbtn">Home <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="file:///C:/xampp/htdocs/javascript-functions-practice/arrayfunction/bankform.html">Third Party Deposit</a>
+                </div>
+            </div> 
+        </div>
+        <div class="bottomstrip"></div>
+        <div class="mainbox">
+            <div class="heading">
+                <h1>Transactions > Third Party Deposit </h1>
+            </div>
+            <div class="line"></div>
+            <div class="account">
+                <h3>Account Number <sup style="color: red;">*</sup>:</h3>
+            <div class="inputs">
+                <input type="text" id="numberinput" maxlength="4" placeholder="XXXX">
+                <input type="text" id="numberinput" maxlength="4" placeholder="XXXX">
+                <input type="text" id="numberinput" maxlength="4" placeholder="XXXX">
+                <input type="text"  id="numberinput" maxlength="4"placeholder="XXXX">
+            </div>  
+            <div class="button">
+                <button class="button1">Validate Account</button>
+                <button class="button2">Refresh</button>
+            </div>
+            </div>
+            <div class="amount">
+                <h3>Amount <sup style="color: red;">*</sup>:</h3>
+                <div class="amountinput inputs">
+                    <input type="number" placeholder="Amount";/>
+                </div>  
+            </div>
+            <div class="moneycalculator">
+                <table class="data">
+                    <tr style="font-size: 15px;">
+                        <th style="text-align: left;">Denomination</th>
+                        <th>Quantity</th>
+                        <th style="position: absolute; margin-left: 10px;">Total</th>
+                    </tr>
+                <tr>
+                    <td>Rs. 5</td>
+                    <td>x <input type="number" id="qty5" oninput="calculateTotal()" style="width: 60px; box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total5" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 10</td>
+                    <td>x <input type="number" id="qty10" oninput="calculateTotal()" style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total10" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 20</td>
+                    <td>x <input type="number" id="qty20" oninput="calculateTotal()" style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total20" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 50</td>
+                    <td>x <input type="number" id="qty50" oninput="calculateTotal()" style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total50" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 100</td>
+                    <td>x <input type="number" id="qty100" oninput="calculateTotal()"  style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total100" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;"disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 200</td>
+                    <td>x <input type="number" id="qty200" oninput="calculateTotal()" style="width: 60px; box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total200" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 500</td>
+                    <td>x <input type="number" id="qty500" oninput="calculateTotal()" style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total500" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;"disabled   ></td>
+                </tr>
+                <tr>
+                    <td>Rs. 2000</td>
+                    <td>x <input type="number" id="qty2000" oninput="calculateTotal()" style="width: 60px;  box-shadow: 0px 0px 0px black"></td>
+                    <td>= <input type="text" id="total2000" style="background-color: rgb(231 210 164);border: 1px solid #867d7d;" disabled ></td>
+                </tr>
+                <tr>
+                    <td>Coins(Total Amount) :</td>
+                    <td></td>
+                    <td><input type="text" id="coins" oninput="calculateTotal()" style="margin-left: 14px; box-shadow: 0px 0px 0px black ;"  ></td>
+                </tr>
+                <tr>
+                    <td>Total Amount<sup>*</sup>:</td>
+                    <td></td>
+                    <td>  <input type="text" id="totalamount" style="margin-left: 14px; background-color: rgb(231 210 164);border: 1px solid #867d7d;"disabled  ></td>
+                </tr>
+                <tr>
+                    <td>Remarks :</td>
+                    <td></td>
+                    <td><input type="text" placeholder="e.g. - Depositor's Name"  style="margin-left: 14px;box-shadow: 0px 0px 0px black ;"></td>
+                </tr>
+                </table>
+            </div>
+            <div class="depositbuttons button">
+                <button class="deposit button1">Confirm Deposit</button>
+                <button class="reset button2">Reset</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+   var dropdownButton = document.querySelector('.dropbtn');
+   var dropdownContent = document.querySelector('.dropdown-content');
+   
+   dropdownButton.addEventListener('click', function() {
+       dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+   });
+
+   // Close the dropdown if the user clicks outside of it
+   window.addEventListener('click', function(event) {
+       if (!dropdownButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+           dropdownContent.style.display = 'none';
+       }
+
+   });
+});
+const numberInput = document.getElementById('numberInput');
+   
+   numberInput.addEventListener('input', function() {
+     if (this.value.length > 4) {
+       this.value = this.value.slice(0, 4);
+     }
+   });
+   //thousand seprater
+   function formatNumberWithCommas(number) {
+           return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+       }
+
+       // Function to calculate totals and update inputs
+       function calculateTotal() {
+           const denominations = [5, 10, 20, 50, 100, 200, 500, 2000];
+           let totalamount = 0;
+
+           denominations.forEach(denomination => {
+               const qty = parseInt(document.getElementById(`qty${denomination}`).value) || 0;
+               const total = qty * denomination;
+               document.getElementById(`total${denomination}`).value = formatNumberWithCommas(total);
+               totalamount += total;
+           });
+
+           // Update total amount with coins (if any)
+           const coins = parseInt(document.getElementById('coins').value) || 0;
+           totalamount += coins;
+
+           document.getElementById('totalamount').value = formatNumberWithCommas(totalamount);
+       }
+
+
+</script>
+</html>

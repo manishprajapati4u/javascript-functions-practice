@@ -1,0 +1,20 @@
+<script>
+
+let number= 232349405839.543;
+
+function remover(seprater,decimal){
+    try{
+        if(decimal){
+            seprater = Math.trunc(seprater);
+        }
+    formatedvalue = seprater.toLocaleString();
+   return formatedvalue;
+    }
+    catch(error){
+        return "";
+    }
+}
+console.log(remover(number,true))
+
+    
+</script>
