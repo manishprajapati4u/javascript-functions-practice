@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.container');
-      function addElements(event) {
-         //ball
+      function addElements(event) { 
+          //ball
    const ball = document.createElement('div');
    ball.classList.add('ball');
    ball.style.left = `${event.clientX}px`;
@@ -37,4 +37,3 @@ document.addEventListener('DOMContentLoaded', function() {
      addElements(event);
      });
    });
-   
