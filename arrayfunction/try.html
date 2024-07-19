@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Movement</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f0f0f0;
+}
+
+#arrow {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('img/file.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.2s;
+    transform-origin: center;
+    
+}
+
+  </style>
+<body>
+    <div id="arrow"></div>
+    <script>
+       let arrow = document.getElementById('arrow');
+        let isAnimating = false; // Flag to check if animation is ongoing
+        let targetQueue = []; // Queue to store target positions
+
+        window.addEventListener('click', function(event) {
+            let targetPos = {
+                x: event.clientX,
+                y: event.clientY
+            };
+
+            targetQueue.push(targetPos); // Add new target to the queue
+            if (!isAnimating) {
+                moveToNextTarget(); // Start moving to the next target if not already animating
+            }
+        });
+
+        function moveToNextTarget() {
+            if (targetQueue.length === 0) {
+                isAnimating = false; // Reset flag if no more targets
+                return;
+            }
+
+            isAnimating = true; // Set flag to indicate animation is in progress
+            const targetPos = targetQueue.shift(); // Get the next target from the queue
+
+            const arrowRect = arrow.getBoundingClientRect();
+            const arrowWidth = arrowRect.width;
+            const arrowHeight = arrowRect.height;
+
+            // Calculate the center of the arrow
+            const arrowCenterX = arrowRect.left + arrowWidth / 2;
+            const arrowCenterY = arrowRect.top + arrowHeight / 2;
+
+            // Calculate the distance and direction to move
+            const distanceX = targetPos.x - arrowCenterX;
+            const distanceY = targetPos.y - arrowCenterY;
+
+            // Animation duration based on distance
+            const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+            const duration = distance * 2; // Adjust speed as needed
+            const startTime = performance.now();
+
+            // Optional: Adjust this distance multiplier to change how close or far the arrow stops from the target position
+            const distanceMultiplier = 0.9456; // Set this to less than 1 to move the arrow slightly backward
+
+            function animate(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const t = Math.min(elapsedTime / duration, 1); // Normalized time
+
+                // Calculate the new position of the arrow
+                const newX = arrowCenterX + distanceX * t * distanceMultiplier - arrowWidth / 2;
+                const newY = arrowCenterY + distanceY * t * distanceMultiplier - arrowHeight / 2;
+
+                // Update arrow position
+                arrow.style.left = newX + 'px';
+                arrow.style.top = newY + 'px';
+
+                // Calculate angle to rotate arrow to face the target
+                const angle = Math.atan2(distanceY, distanceX) * 180 / Math.PI;
+                arrow.style.transform = `rotate(${angle}deg)`;
+
+                // Continue animation until the arrow reaches the target
+                if (t < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    isAnimating = false; // Reset the flag to allow new animations
+                    moveToNextTarget(); // Move to the next target in the queue
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+    </script>
+</body>
+</html>

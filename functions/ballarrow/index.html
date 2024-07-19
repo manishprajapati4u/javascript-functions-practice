@@ -3,6 +3,7 @@
     <style>
       body {
          position: relative;
+         background-color: rgb(229, 228, 228);
       }
       .ball {
         background-color: red;
@@ -15,9 +16,12 @@
         background-image: url('img/arrow.png');
         background-repeat: no-repeat;
         background-size: contain;
-        height: 80px;
-        width: 80px;
+        height: 90px;
+        width: 90px;
         position: absolute;
+        transition: transform 0.2s;
+        transform-origin:center;
+        z-index: 1000;
       }
       .splatter {
     position: absolute;
