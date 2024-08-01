@@ -20,6 +20,7 @@ function targetarrow() {
   element.style.top = mousePos.y - 35 + 'px';;
   const arrow = this.document.body.appendChild(element);
   let arrowPos = 0;
+
   clearInterval(id);
   id = setInterval(frame, 5);
   function frame(){
@@ -27,7 +28,7 @@ function targetarrow() {
       clearInterval(id);
     } else {
       arrowPos++; 
-      arrow.style.left = arrowPos;
+      arrow.style.left = arrowPos + 'px';
     }
    }
 
